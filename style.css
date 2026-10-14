@@ -1,0 +1,151 @@
+/* Base / Mobile-First Setup */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #333333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.site-header {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  padding: 1.2rem 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #e94560;
+}
+
+.hero-section, .about-section, .portfolio-section {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+/* EXTRA 1: Responsive CSS Grid Layout (Mobile-first: 1 column) */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+/* EXTRA 2: Interactive Card Hover Transitions */
+.portfolio-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.portfolio-card h4 {
+  margin: 1rem 0 0.5rem 0;
+  color: #1a1a2e;
+}
+
+.site-footer {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+/* Media Query for Tablets (Trigger at 768px -> 2 columns) */
+@media screen and (min-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Media Query for Large Screens (Trigger at 1024px -> 3 columns) */
+@media screen and (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* EXTRA 3: Prefers-Reduced-Motion Support (Accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .portfolio-card {
+    transition: none;
+  }
+  .portfolio-card:hover {
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/* EXTRA 4: Prefers-Color-Scheme: Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+  .portfolio-card {
+    background: #1e1e1e;
+    border-color: #2c2c2c;
+    color: #ffffff;
+  }
+  .portfolio-card h4 {
+    color: #ffffff;
+  }
+  .site-header, .site-footer {
+    background-color: #0f0f1a;
+  }
+}
